@@ -24,6 +24,9 @@ mongoose
   .then(() => console.log("Database Connected !!"))
   .catch((err) => console.log(err));
 
+// router prefix
+app.use("/api/post", require("./routes/routes"));
+
 // start the server
 app.listen(port, () =>
   console.log(`Server is running at http://localhost:${port}`)
