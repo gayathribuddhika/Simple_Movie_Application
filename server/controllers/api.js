@@ -18,12 +18,20 @@ module.exports = class API {
 
     // create a post
     static async createPost(req, res) {
-        res.send("create a post");
+        const post = req.body;
+        const imagename = req.file.imagename;
+        post.image = imagename;
+        try {
+            res.status(201).json({msg: "Post created successfully"});  
+        } catch (err) {
+            res.status(400).json({msg: err.msg});  
+        } 
     }
 
     // update a post
     static async updatePost(req, res) {
         res.send("Update a post");
+        
     }
 
     // delete a post
