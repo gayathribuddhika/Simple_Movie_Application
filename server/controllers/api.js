@@ -1,3 +1,4 @@
+const posts = require("../models/posts");
 const Post = require("../models/posts");
 
 module.exports = class API {
@@ -7,13 +8,19 @@ module.exports = class API {
             const posts = await Post.find();
             res.status(200).json(posts);            
         } catch (err) {
-            res.status(404).json({msg: err.msg});
+            res.status(404).json({message: err.message});
         }
     }
 
     // fetch posts by ID
     static async fetchPostById(req, res) {
-        res.send("Fetch post by ID");
+        const id = req.params.id;
+        try {
+            const post = await Post.findById(id);
+            res.status(200).json(post);
+        } catch (err) {
+            res.status(404).json({message: err.message});
+        }
     }
 
     // create a post
@@ -25,7 +32,7 @@ module.exports = class API {
             await Post.create(post);
             res.status(201).json({msg: "Post created successfully"});  
         } catch (err) {
-            res.status(400).json({msg: err.msg});  
+            res.status(400).json({message: err.message});  
         } 
     }
 
