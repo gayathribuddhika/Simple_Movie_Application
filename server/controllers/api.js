@@ -1,5 +1,6 @@
 const posts = require("../models/posts");
 const Post = require("../models/posts");
+const fs = require("fs");
 
 module.exports = class API {
     // fetch all posts
@@ -38,7 +39,18 @@ module.exports = class API {
 
     // update a post
     static async updatePost(req, res) {
-        res.send("Update a post");
+        const id = req.params.id;
+        let new_image = "";
+        if (req.file) {
+            new_image = req.file.filename;
+            try {
+                fs.unlinkSync("./uploads/" + req.body.old_image)
+            } catch (err) {
+                console.log(err);
+            }
+        } else {
+            
+        }
         
     }
 
