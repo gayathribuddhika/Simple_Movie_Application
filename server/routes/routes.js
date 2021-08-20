@@ -21,7 +21,7 @@ let uploads = multer({
 router.get("/", API.fetchAllPosts);
 router.get("/:id", API.fetchPostById);
 router.post("/", uploads, API.createPost);
-router.patch("/:id", API.updatePost);
+router.patch("/:id", uploads, API.updatePost);
 router.delete("/:id", API.deletePost);
 
 module.exports = router;

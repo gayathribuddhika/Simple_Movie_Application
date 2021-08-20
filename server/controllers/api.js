@@ -49,9 +49,16 @@ module.exports = class API {
                 console.log(err);
             }
         } else {
-            
+            new_image = req.body.old_image;
         }
-        
+        const newPost = req.body;
+        newPost.image = new_image;
+        try {
+            await Post.findByIdAndUpdate(id, newPost);
+            res.status(200).json({msg: "Post updated successfully"});
+        } catch (err) {
+            res.status(404).json({message: err.message});
+        }
     }
 
     // delete a post
