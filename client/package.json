@@ -28,6 +28,8 @@
     "last 2 versions",
     "not dead"
   ],
-  "_id": "client@0.1.0",
-  "readme": "ERROR: No README data found!"
+  "main": "babel.config.js",
+  "author": "",
+  "license": "ISC",
+  "description": ""
 }
