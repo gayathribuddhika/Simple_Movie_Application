@@ -19,15 +19,12 @@
       <v-list-item-group
         color="primary"
       >
-        <v-list-item
-          v-for="(item, i) in items"
-          :key="i"
-        >
+        <v-list-item v-for="(item, i) in items" :key="i" :to="item.link">
           <v-list-item-icon>
             <v-icon v-text="item.icon"></v-icon>
           </v-list-item-icon>
           <v-list-item-content>
-            <v-list-item-title v-text="item.text"></v-list-item-title>
+            <v-list-item-title v-text="item.title"></v-list-item-title>
           </v-list-item-content>
         </v-list-item>
       </v-list-item-group>
@@ -41,7 +38,7 @@
     </v-app-bar>
 
     <v-main>
-      <!--  -->
+      <router-view></router-view>
     </v-main>
   </v-app>
 </template>
@@ -51,9 +48,9 @@
     data: () => ({ 
       drawer: null,
       items: [
-        { text: 'Real-Time', icon: 'mdi-clock' },
-        { text: 'Audience', icon: 'mdi-account' },
-        { text: 'Conversions', icon: 'mdi-flag' },
+        { title: 'Home', icon: 'mdi-home', link: "/"},
+        { title: 'Add Post', icon: 'mdi-note-plus', link: "/add-post"},
+        { title: 'About', icon: 'mdi-help-box', link: "/about"},
       ],
     }),
   }
