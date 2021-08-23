@@ -4,7 +4,7 @@
       <v-col sm="10" class="pa-4 mx-auto">
         <v-card class="pa-2">
           <v-img :src="`/${post.image}`"></v-img>
-          <!-- <v-card-actions class="pb-0">
+          <v-card-actions class="pb-0">
             <v-row class="mt-1 mx-1">
               <v-col sm="2">
                 <v-btn small outlined color="primary">{{post.category}}</v-btn>
@@ -21,7 +21,7 @@
           <v-card-text class="grey--text">
             <p>{{ post.content }}</p>
             <p>{{ post.created }}</p>
-          </v-card-text> -->
+          </v-card-text>
         </v-card>
       </v-col>
     </v-row>
@@ -37,7 +37,7 @@ export default {
     };
   },
   async created() {
-    const response = await API.getPostByID(this.$route.params.id);
+    const response = await API.getPostByID(this.$route.params.id)
     this.post = response;
   },
 };

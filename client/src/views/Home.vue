@@ -29,6 +29,7 @@ export default {
   },
   async created() {
     this.posts = await API.getAllPost();
+    // console.log(this.posts);
   },
 };
 </script>
