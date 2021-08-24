@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <v-row>
+    <v-row no-gutters>
       <v-col sm="10" class="pa-4 mx-auto">
         <v-card class="pa-2">
           <v-img :src="`/${post.image}`"></v-img>
@@ -10,8 +10,8 @@
                 <v-btn small outlined color="primary">{{post.category}}</v-btn>
               </v-col>
               <v-col sm="10" class="d-flex justify-end">
-                <v-btn color="sucess">Edit</v-btn>
-                <v-btn color="red">Delete</v-btn>
+                <v-btn color="sucess" text>Edit</v-btn>
+                <v-btn color="red" text>Delete</v-btn>
               </v-col>
             </v-row>
           </v-card-actions>
