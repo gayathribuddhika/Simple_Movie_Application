@@ -14,7 +14,7 @@ export default class API {
     }
     // insert post to database
     static async addPost(post) {
-        const res = await axios.get(url, post);
+        const res = await axios.post(url, post);
         return res.data;
     }
     // update post in database
