@@ -50,9 +50,9 @@ export default {
             formData.append("title", this.post.title);
             formData.append("content", this.post.content);
             formData.append("category", this.post.category);
-
+            formData.append("old_image", this.post.image);
             if(this.$refs.form.validate()) {
-                const response = await API.updatePost(formData);
+                const response = await API.updatePost(this.$route.params.id, formData);
                 this.$router.push({name: "home", params: {message: response.message}});
             }
         }
